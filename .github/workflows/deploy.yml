@@ -1,15 +1,13 @@
 name: deploy
-jobs:
-
 on:
   push:
     branches: [ main ]
 
 
 permissions: 
-  contens: read
-  pages : write
-  id-token : write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
