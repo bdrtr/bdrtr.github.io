@@ -23,8 +23,8 @@ export default function Header() {
                         </div>
                     </div>
                     <div className="col-xxl-7">
-                        <ProfileImage ppath={'../../src/assets/profile.jpg'} />
-                    </div>
+                        <ProfileImage ppath={'profile.jpg'} />
+                    </div> 
                 </div>
             </div>
         </header>
