@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, memo, useCallback } from "react";
 
-export default function ContactForm() {
+const ContactForm = memo(function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,11 +11,12 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
+  // Memoize event handlers to prevent unnecessary re-renders
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }));
+  }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
     // Buraya form gönderme işlemleri yapılır (örneğin fetch ile bir API'ye gönder)
     // Şimdilik sahte başarı/başarısızlık durumu simüle ediyoruz:
@@ -25,7 +26,7 @@ export default function ContactForm() {
     } else {
       setError(true);
     }
-  };
+  }, [formData]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -100,4 +101,6 @@ export default function ContactForm() {
       </div>
     </form>
   );
-}
+});
+
+export default ContactForm;

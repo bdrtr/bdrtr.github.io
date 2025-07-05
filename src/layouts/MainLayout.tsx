@@ -1,12 +1,9 @@
+import { memo } from "react";
 import { Outlet } from "react-router";
 import Navbar from "../components/Navs/Navbar";
 import Footer from "../components/Footer/Footer";
 
-export default function MainLayout() {
-
-
-
-
+const MainLayout = memo(function MainLayout() {
     return (
         <>
             <Navbar />
@@ -16,4 +13,6 @@ export default function MainLayout() {
             <Footer />
         </>
     );
-}
+});
+
+export default MainLayout;
