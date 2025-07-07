@@ -1,12 +1,7 @@
 import { memo } from "react";
-import Experience from "../components/Results/Experience";
 import type IExperience from "../Interfaces/IExperience";
-import Education from "../components/Results/Education";
 import type IEducation from "../Interfaces/UEducation";
-import Skill from "../components/Results/Skills";
-import Language from "../components/Results/Language";
 import profileImg from "../assets/profile.jpg";
-import { Link } from "react-router-dom";
 
 // Move static data outside component to prevent recreation on every render
 const EXPERIENCE_DATA: IExperience[] = [
