@@ -91,11 +91,13 @@ const Resume = memo(function Resume() {
                 {/* Sidebar/Profile */}
                 <aside className="col-lg-4 mb-4 mb-lg-0">
                     <div className="card shadow border-0 rounded-4 text-center p-4 bg-gradient-primary-to-secondary text-white position-sticky top-0">
-                        <img src={profileImg} alt="Profile" className="rounded-circle mb-3 mx-auto" style={{ width: 120, height: 120, objectFit: 'cover', border: '4px solid #d4af37', boxShadow: '0 4px 24px rgba(0,0,0,0.15)' }} />
+                        <div className="resume-profile-frame mb-3 mx-auto">
+                            <img src={profileImg} alt="Bedir Tuğra Karaabalı - Software Engineer" className="resume-profile-image" />
+                        </div>
                         <h3 className="fw-bold mb-1">Bedir Tuğra Karaabalı</h3>
                         <div className="mb-2">Fullstack Web Developer</div>
                         <div className="mb-3 small">Istanbul, Turkey</div>
-                        <a href="/public/resume.pdf" className="btn btn-warning btn-sm mb-2" download>
+                        <a href="/public/resume.pdf" className="btn btn-secondary btn-sm mb-2" download>
                             <i className="bi bi-download me-1"></i> Download Resume
                         </a>
                         <div className="d-flex justify-content-center gap-2 mt-2">

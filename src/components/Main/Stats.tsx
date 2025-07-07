@@ -35,7 +35,7 @@ const Stats = memo(function Stats() {
                     <div className="col-lg-8 col-xl-6">
                         <div className="text-center">
                             <h2 className="fw-bolder mb-5">
-                                <span className="text-gradient d-inline">My Achievements</span>
+                                <span className="text-gradiant d-inline">My Achievements</span>
                             </h2>
                         </div>
                     </div>

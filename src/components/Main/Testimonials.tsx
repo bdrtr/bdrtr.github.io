@@ -38,16 +38,16 @@ const Testimonials = memo(function Testimonials() {
         <section className="py-5 bg-light">
             <div className="container px-5 my-5">
                 <div className="row gx-5 justify-content-center">
-                    <div className="col-lg-8 col-xl-6">
+                    <div className="col-lg-10 col-xl-8">
                         <div className="text-center">
                             <h2 className="fw-bolder mb-5">
-                                <span className="text-gradient d-inline">What Clients Say</span>
+                                <span className="text-gradiant d-inline">What Clients Say</span>
                             </h2>
                         </div>
                     </div>
                 </div>
                 <div className="row gx-5 justify-content-center">
-                    <div className="col-lg-10 col-xl-8">
+                    <div className="col-lg-12 col-xl-10">
                         <div className="row gx-5 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
                             {testimonials.map((testimonial, index) => (
                                 <div className="col mb-5" key={index}>

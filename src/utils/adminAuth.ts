@@ -1,5 +1,5 @@
 export function login(email: string, password: string): boolean {
-  if (email === '' && password === '') {
+  if (email === 'bedir@s.com' && password === '2001bedir') {
     localStorage.setItem('isAdmin', 'true');
     return true;
   }

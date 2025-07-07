@@ -14,13 +14,13 @@ const Header = memo(function Header() {
     }), []);
 
     return (
-        <header className="py-5 bg-gradient-primary-to-secondary text-white">
+        <header className="py-5 header-hero-bg text-white">
             <div className="container px-5 pb-5">
                 <div className="row gx-5 align-items-center">
                     <div className="col-xxl-5">
                         <div className="text-center text-xxl-start">
                             <div className="badge bg-white text-primary mb-4">
-                                <div className="text-uppercase fw-bold">🚀 Full-stack developer &middot; 💻 Programmer &middot; 🌟 Open-source enthusiast</div>
+                                <div className="text-uppercase fw-bold">🚀 Full-stack developer &middot; 💻 software engineer &middot; 🌟 Open-source enthusiast</div>
                             </div>
                             <div className="fs-3 fw-light text-white-50 mb-3">I help startups and businesses</div>
                             <h1 className="display-3 fw-bolder mb-5">

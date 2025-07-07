@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const CallToAction = memo(function CallToAction() {
     return (
-        <section className="py-5 bg-gradient-primary-to-secondary text-white">
+        <section className="py-5 header-hero-bg text-white">
             <div className="container px-5 my-5">
                 <div className="row gx-5 justify-content-center">
                     <div className="col-lg-8 col-xl-6">

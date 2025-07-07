@@ -23,16 +23,16 @@ const About = memo(function About() {
         <section className="bg-white py-5">
             <div className="container px-5">
                 <div className="row gx-5 justify-content-center">
-                    <div className="col-xxl-8">
+                    <div className="col-xxl-10">
                         <div className="text-center my-5">
                             <div className="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-4 mx-auto" style={{width: '4rem', height: '4rem'}}>
                                 <i className="bi bi-person-badge fs-1"></i>
                             </div>
                             <h2 className="display-5 fw-bolder mb-4">
-                                <span className="text-gradient d-inline">About Me</span>
+                                <span className=" d-inline">About Me</span>
                             </h2>
                             <div className="row gx-5 justify-content-center">
-                                <div className="col-lg-10">
+                                <div className="col-lg-12">
                                     <div className="card shadow border-0 rounded-4 mb-5">
                                         <div className="card-body p-5">
                                             <h3 className="fw-bolder mb-4 text-primary">{aboutText.greeting}</h3>

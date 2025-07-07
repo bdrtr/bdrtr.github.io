@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { lazy, Suspense, memo } from 'react';
 import './App.css'
+import './css/professional-theme.css'
 import MainLayout from './layouts/MainLayout';
 import { ThemeProvider } from './contexts/ThemeContext';
 import ProtectedRoute from './components/ProtectedRoute';

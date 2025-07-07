@@ -56,7 +56,7 @@ const Projects = memo(function Projects() {
                 <p className="text-muted mb-3" style={{minHeight: 60}}>{project.description}</p>
                 <div className="mb-3 d-flex flex-wrap gap-2">
                   {project.tech.map((tech, tIdx) => (
-                    <span key={tIdx} className="badge rounded-pill bg-secondary px-3 py-2 small">{tech}</span>
+                    <span key={tIdx} className="badge rounded-pill bg-dark px-3 py-2 small">{tech}</span>
                   ))}
                 </div>
                 <div className="mt-auto d-flex gap-2">
