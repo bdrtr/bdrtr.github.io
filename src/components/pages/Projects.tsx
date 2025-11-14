@@ -1,4 +1,7 @@
+'use client';
+
 import { memo } from "react";
+import Image from "next/image";
 
 const PROJECTS = [
   {
@@ -48,8 +51,16 @@ const Projects = memo(function Projects() {
         {PROJECTS.map((project, idx) => (
           <div className="col-md-6 col-lg-4" key={idx}>
             <div className="card h-100 shadow border-0 rounded-4 project-card position-relative overflow-hidden">
-              <div className="bg-light d-flex align-items-center justify-content-center" style={{height: 180}}>
-                <img src={project.image} alt={project.title} style={{maxHeight: 120, maxWidth: '80%', objectFit: 'contain'}} />
+              <div className="bg-light d-flex align-items-center justify-content-center position-relative" style={{height: 180}}>
+                <Image 
+                  src={project.image} 
+                  alt={project.title} 
+                  width={200}
+                  height={120}
+                  className="object-contain"
+                  style={{maxHeight: 120, maxWidth: '80%'}}
+                  loading="lazy"
+                />
               </div>
               <div className="card-body d-flex flex-column">
                 <h5 className="fw-bold mb-2">{project.title}</h5>

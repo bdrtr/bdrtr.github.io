@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, memo, useCallback } from "react";
 
 const ContactForm = memo(function ContactForm() {
@@ -32,71 +34,77 @@ const ContactForm = memo(function ContactForm() {
     <form onSubmit={handleSubmit}>
       <div className="form-floating mb-3">
         <input
-          className="form-control"
+          className="form-control modern-input"
           id="name"
           type="text"
-          placeholder="Enter your name..."
+          placeholder="Adınız..."
           value={formData.name}
           onChange={handleChange}
           required
         />
-        <label htmlFor="name">Full name</label>
+        <label htmlFor="name" className="modern-label">Adınız</label>
       </div>
 
       <div className="form-floating mb-3">
         <input
-          className="form-control"
+          className="form-control modern-input"
           id="email"
           type="email"
-          placeholder="name@example.com"
+          placeholder="email@example.com"
           value={formData.email}
           onChange={handleChange}
           required
         />
-        <label htmlFor="email">Email address</label>
+        <label htmlFor="email" className="modern-label">E-posta Adresi</label>
       </div>
 
       <div className="form-floating mb-3">
         <input
-          className="form-control"
+          className="form-control modern-input"
           id="phone"
           type="tel"
-          placeholder="(123) 456-7890"
+          placeholder="Telefon numaranız..."
           value={formData.phone}
           onChange={handleChange}
           required
         />
-        <label htmlFor="phone">Phone number</label>
+        <label htmlFor="phone" className="modern-label">Telefon Numarası</label>
       </div>
 
       <div className="form-floating mb-3">
         <textarea
-          className="form-control"
+          className="form-control modern-input"
           id="message"
-          placeholder="Enter your message here..."
+          placeholder="Mesajınızı buraya yazın..."
           value={formData.message}
           onChange={handleChange}
           required
           style={{ height: "150px" }}
         />
-        <label htmlFor="message">Message</label>
+        <label htmlFor="message" className="modern-label">Mesajınız</label>
       </div>
 
       {submitted && (
-        <div className="text-center mb-3 text-success fw-bold">
-          Form submission successful!
+        <div className="text-center mb-3 fw-bold modern-text-gradient" style={{
+          fontFamily: 'Poppins, sans-serif'
+        }}>
+          ✓ Mesajınız başarıyla gönderildi!
         </div>
       )}
 
       {error && (
-        <div className="text-center mb-3 text-danger">
-          Please fill in all required fields.
+        <div className="text-center mb-3" style={{
+          color: 'var(--accent-tertiary)',
+          fontFamily: 'Inter, sans-serif'
+        }}>
+          Lütfen tüm alanları doldurun.
         </div>
       )}
 
       <div className="d-grid">
-        <button className="btn btn-primary btn-lg" type="submit">
-          Submit
+        <button className="btn-modern btn-lg" type="submit">
+          <i className="bi bi-send me-2"></i>
+          Gönder
         </button>
       </div>
     </form>

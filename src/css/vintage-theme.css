@@ -1,0 +1,305 @@
+/* Vintage Theme - Retro & Elegant Design */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Special+Elite&display=swap');
+
+/* Vintage Color Palette */
+:root {
+  --vintage-cream: #f5f1e8;
+  --vintage-beige: #e8e0d1;
+  --vintage-sepia: #d4c4a8;
+  --vintage-brown: #8b7355;
+  --vintage-dark: #5a4a3a;
+  --vintage-gold: #c9a961;
+  --vintage-ink: #2c2416;
+  --vintage-paper: #faf8f3;
+  --vintage-border: #b8a082;
+}
+
+/* Base Vintage Styling */
+body {
+  background: var(--vintage-paper);
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(212, 196, 168, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(201, 169, 97, 0.1) 0%, transparent 50%);
+  color: var(--vintage-ink);
+  font-family: 'Crimson Text', 'Georgia', serif;
+  line-height: 1.8;
+}
+
+/* Vintage Typography */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-weight: 600;
+  color: var(--vintage-dark);
+  letter-spacing: 0.02em;
+}
+
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-weight: 700;
+  color: var(--vintage-dark);
+}
+
+/* Vintage Cards */
+.vintage-card {
+  background: var(--vintage-cream);
+  border: 2px solid var(--vintage-border);
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 6px rgba(90, 74, 58, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 1.5rem;
+}
+
+.vintage-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(135deg, transparent 0%, rgba(201, 169, 97, 0.05) 100%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8a082' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  border-radius: 8px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.vintage-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 12px rgba(90, 74, 58, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-color: var(--vintage-gold);
+}
+
+/* Vintage Buttons */
+.btn-vintage {
+  background: linear-gradient(135deg, var(--vintage-beige) 0%, var(--vintage-sepia) 100%);
+  border: 2px solid var(--vintage-border);
+  color: var(--vintage-dark);
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  box-shadow: 
+    0 2px 4px rgba(90, 74, 58, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  text-transform: none;
+  letter-spacing: 0.05em;
+}
+
+.btn-vintage:hover {
+  background: linear-gradient(135deg, var(--vintage-sepia) 0%, var(--vintage-gold) 100%);
+  border-color: var(--vintage-gold);
+  color: var(--vintage-dark);
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 8px rgba(90, 74, 58, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn-vintage-outline {
+  background: transparent;
+  border: 2px solid var(--vintage-border);
+  color: var(--vintage-dark);
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-vintage-outline:hover {
+  background: var(--vintage-cream);
+  border-color: var(--vintage-gold);
+  color: var(--vintage-dark);
+  transform: translateY(-1px);
+}
+
+/* Vintage Header Background */
+.vintage-header-bg {
+  background: linear-gradient(135deg, var(--vintage-dark) 0%, var(--vintage-brown) 50%, var(--vintage-sepia) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.vintage-header-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(201, 169, 97, 0.2) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23c9a961' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Vintage Section Backgrounds */
+.vintage-section-light {
+  background: var(--vintage-paper);
+  background-image: 
+    linear-gradient(180deg, transparent 0%, rgba(212, 196, 168, 0.05) 100%);
+}
+
+.vintage-section-cream {
+  background: var(--vintage-cream);
+  border-top: 1px solid var(--vintage-border);
+  border-bottom: 1px solid var(--vintage-border);
+}
+
+/* Vintage Text Effects */
+.vintage-text {
+  color: var(--vintage-dark);
+  text-shadow: 0 1px 2px rgba(90, 74, 58, 0.1);
+}
+
+.vintage-text-gold {
+  color: var(--vintage-gold);
+  text-shadow: 0 2px 4px rgba(201, 169, 97, 0.3);
+}
+
+/* Vintage Borders & Dividers */
+.vintage-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--vintage-border) 50%, transparent 100%);
+  margin: 2rem 0;
+  border: none;
+}
+
+.vintage-border {
+  border: 2px solid var(--vintage-border);
+  border-radius: 4px;
+}
+
+/* Vintage Badge */
+.vintage-badge {
+  background: var(--vintage-beige);
+  border: 1px solid var(--vintage-border);
+  color: var(--vintage-dark);
+  font-family: 'Playfair Display', serif;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Vintage Profile Frame */
+.vintage-profile-frame {
+  border: 4px solid var(--vintage-border);
+  border-radius: 8px;
+  padding: 8px;
+  background: var(--vintage-cream);
+  box-shadow: 
+    0 4px 8px rgba(90, 74, 58, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Vintage Navbar */
+.vintage-navbar {
+  background: rgba(245, 241, 232, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--vintage-border);
+  box-shadow: 0 2px 8px rgba(90, 74, 58, 0.1);
+}
+
+.vintage-navbar-scrolled {
+  background: rgba(245, 241, 232, 0.98) !important;
+  box-shadow: 0 4px 12px rgba(90, 74, 58, 0.15);
+}
+
+.vintage-navbar .nav-link {
+  color: var(--vintage-dark) !important;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.vintage-navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--vintage-gold);
+  transition: width 0.3s ease;
+}
+
+.vintage-navbar .nav-link:hover::after,
+.vintage-navbar .nav-link.active::after {
+  width: 80%;
+}
+
+.vintage-navbar .nav-link:hover {
+  color: var(--vintage-gold) !important;
+}
+
+.vintage-navbar .navbar-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--vintage-dark) !important;
+}
+
+/* Dark Mode Vintage (optional) */
+[data-theme="dark"] {
+  --vintage-cream: #2c2416;
+  --vintage-beige: #3d3325;
+  --vintage-sepia: #4a3e2e;
+  --vintage-brown: #5a4a3a;
+  --vintage-dark: #e8e0d1;
+  --vintage-gold: #d4b87a;
+  --vintage-ink: #f5f1e8;
+  --vintage-paper: #1f1a12;
+  --vintage-border: #6b5d47;
+}
+
+/* Vintage Form Controls */
+.form-control.vintage-border:focus {
+  border-color: var(--vintage-gold) !important;
+  box-shadow: 0 0 0 0.2rem rgba(201, 169, 97, 0.25) !important;
+  background-color: var(--vintage-cream) !important;
+}
+
+.form-control.vintage-border {
+  transition: all 0.3s ease;
+}
+
+/* Responsive Vintage */
+@media (max-width: 768px) {
+  .vintage-card {
+    padding: 1rem;
+  }
+  
+  .btn-vintage {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Vintage Animation */
+@keyframes vintageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vintage-fade-in {
+  animation: vintageFadeIn 0.6s ease-out;
+}
+

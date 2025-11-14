@@ -67,7 +67,7 @@ const Testimonials = memo(function Testimonials() {
                                             <div className="mb-3">
                                                 {renderStars(testimonial.rating)}
                                             </div>
-                                            <p className="text-muted mb-0">"{testimonial.content}"</p>
+                                            <p className="text-muted mb-0">&quot;{testimonial.content}&quot;</p>
                                         </div>
                                         <div className="card-footer p-4 pt-0 bg-transparent border-top-0">
                                             <div className="d-flex align-items-end justify-content-between">

@@ -36,8 +36,8 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
   useEffect(() => {
     if (mounted) {
-      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
     }
   }, [isDarkMode, mounted]);
 
