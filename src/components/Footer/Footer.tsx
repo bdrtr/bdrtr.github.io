@@ -1,5 +1,7 @@
+'use client';
+
 import { memo } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const Footer = memo(function Footer() {
     return (
@@ -14,7 +16,7 @@ const Footer = memo(function Footer() {
                         <span className="mx-1">&middot;</span>
                         <a className="small" href="https://github.com/bdrtr/bdrtr.github.io">source code</a>
                         <span className="mx-1">&middot;</span>
-                        <Link className="small" to="contact">Contact</Link>
+                        <Link className="small" href="/contact">Contact</Link>
                     </div>
                 </div>
             </div>

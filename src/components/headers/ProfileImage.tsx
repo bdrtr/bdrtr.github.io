@@ -1,4 +1,7 @@
+'use client';
+
 import { memo } from "react";
+import Image from "next/image";
 
 interface ProfileImageProps {
   ppath: string;
@@ -9,10 +12,14 @@ const ProfileImage = memo(function ProfileImage({ ppath }: ProfileImageProps) {
     <div className="d-flex justify-content-center mt-5 mt-xxl-0">
       <div className="profile-frame">
         <div className="profile-image-container">
-          <img 
+          <Image 
             className="profile-image" 
-            src={ppath}
+            src={`/${ppath}`}
             alt="Bedir Tuğra Karaabalı - Software Engineer"
+            width={240}
+            height={240}
+            priority
+            style={{ objectFit: 'cover', borderRadius: '16px' }}
           />
         </div>
         <div className="profile-decoration">

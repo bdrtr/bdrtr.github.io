@@ -1,14 +1,17 @@
+'use client';
+
 import { memo, useMemo, useState, useEffect } from "react";
 import Lottie from "lottie-react";
 import atomAnim from "../../assets/atom-ani.json";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 import { isAuthenticated, logout } from "../../utils/adminAuth";
 
 const Navbar = memo(function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const location = useLocation();
+    const pathname = usePathname();
 
     // Memoize the Lottie animation data to prevent unnecessary re-renders
     const lottieProps = useMemo(() => ({
@@ -39,7 +42,7 @@ const Navbar = memo(function Navbar() {
     // Close mobile menu when route changes
     useEffect(() => {
         setIsMobileMenuOpen(false);
-    }, [location.pathname]);
+    }, [pathname]);
 
     const navItems = [
         { path: "/", label: "Home" },
@@ -49,7 +52,7 @@ const Navbar = memo(function Navbar() {
         { path: "/contact", label: "Contact" }
     ];
 
-    const isActive = (path: string) => location.pathname === path;
+    const isActive = (path: string) => pathname === path;
 
     return (
         <nav className={`navbar navbar-expand-lg fixed-top transition-all duration-300 ${
@@ -59,7 +62,7 @@ const Navbar = memo(function Navbar() {
         }`}>
             <div className="container px-4 px-lg-5">
                 {/* Logo/Brand */}
-                <Link className="navbar-brand d-flex align-items-center" to="/">
+                <Link className="navbar-brand d-flex align-items-center" href="/">
                     <div className="logo-container me-2">
                         <Lottie {...lottieProps} />
                     </div>
@@ -90,7 +93,7 @@ const Navbar = memo(function Navbar() {
                                     className={`nav-link position-relative px-3 py-2 ${
                                         isActive(item.path) ? 'active' : ''
                                     }`}
-                                    to={item.path}
+                                    href={item.path}
                                 >
                                     {item.label}
                                     {isActive(item.path) && (
@@ -113,7 +116,7 @@ const Navbar = memo(function Navbar() {
                             ) : (
                                 <Link 
                                     className="btn btn-outline-secondary btn-sm px-3 py-2" 
-                                    to="admin-login" 
+                                    href="/admin-login" 
                                     title="Admin Panel"
                                 >
                                     <i className="bi bi-lock-fill me-1"></i>

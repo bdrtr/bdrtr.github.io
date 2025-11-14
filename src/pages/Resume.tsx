@@ -1,7 +1,9 @@
+'use client';
+
 import { memo } from "react";
+import Image from "next/image";
 import type IExperience from "../Interfaces/IExperience";
 import type IEducation from "../Interfaces/UEducation";
-import profileImg from "../assets/profile.jpg";
 
 // Move static data outside component to prevent recreation on every render
 const EXPERIENCE_DATA: IExperience[] = [
@@ -87,12 +89,12 @@ const Resume = memo(function Resume() {
                 <aside className="col-lg-4 mb-4 mb-lg-0">
                     <div className="card shadow border-0 rounded-4 text-center p-4 bg-gradient-primary-to-secondary text-white position-sticky top-0">
                         <div className="resume-profile-frame mb-3 mx-auto">
-                            <img src={profileImg} alt="Bedir Tuğra Karaabalı - Software Engineer" className="resume-profile-image" />
+                            <Image src="/profile.jpg" alt="Bedir Tuğra Karaabalı - Software Engineer" className="resume-profile-image" width={120} height={120} style={{ objectFit: 'cover', borderRadius: '50%' }} />
                         </div>
                         <h3 className="fw-bold mb-1">Bedir Tuğra Karaabalı</h3>
                         <div className="mb-2">Fullstack Web Developer</div>
                         <div className="mb-3 small">Istanbul, Turkey</div>
-                        <a href="/public/resume.pdf" className="btn btn-secondary btn-sm mb-2" download>
+                        <a href="/resume.pdf" className="btn btn-secondary btn-sm mb-2" download>
                             <i className="bi bi-download me-1"></i> Download Resume
                         </a>
                         <div className="d-flex justify-content-center gap-2 mt-2">

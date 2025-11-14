@@ -31,11 +31,11 @@ const Header = memo(function Header() {
                             </h1>
                             
                             <div className="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                                <a className="btn btn-light btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/resume.pdf">
+                                <a className="btn btn-light btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/resume.pdf" download>
                                     <i className="bi bi-download me-2"></i>
                                     Download Resume
                                 </a>
-                                <a className="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="projects">
+                                <a className="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="/projects">
                                     <i className="bi bi-folder me-2"></i>
                                     View Projects
                                 </a>

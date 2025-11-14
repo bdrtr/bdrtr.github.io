@@ -1,5 +1,7 @@
+'use client';
+
 import { memo } from "react";
-import { Link } from "react-router";
+import Link from "next/link";
 
 const CallToAction = memo(function CallToAction() {
     return (
@@ -18,14 +20,14 @@ const CallToAction = memo(function CallToAction() {
                             <div className="d-grid gap-3 d-sm-flex justify-content-sm-center">
                                 <Link 
                                     className="btn btn-light btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" 
-                                    to="contact"
+                                    href="/contact"
                                 >
                                     <i className="bi bi-envelope me-2"></i>
                                     Get In Touch
                                 </Link>
                                 <Link 
                                     className="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" 
-                                    to="projects"
+                                    href="/projects"
                                 >
                                     <i className="bi bi-folder me-2"></i>
                                     View Projects
