@@ -2,8 +2,8 @@
 
 import { memo } from "react";
 import Image from "next/image";
-import type IExperience from "../Interfaces/IExperience";
-import type IEducation from "../Interfaces/UEducation";
+import type IExperience from "../../Interfaces/IExperience";
+import type IEducation from "../../Interfaces/UEducation";
 
 const EXPERIENCE_DATA: IExperience[] = [
     {
