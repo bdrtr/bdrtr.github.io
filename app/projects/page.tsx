@@ -1,5 +1,5 @@
 import MainLayout from '../components/MainLayout';
-import Projects from '@/src/pages/Projects';
+import Projects from '@/src/components/pages/Projects';
 
 export default function ProjectsPage() {
   return (

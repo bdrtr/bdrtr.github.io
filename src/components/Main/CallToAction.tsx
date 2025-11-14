@@ -1,38 +1,32 @@
 'use client';
 
 import { memo } from "react";
-import Link from "next/link";
 
 const CallToAction = memo(function CallToAction() {
     return (
-        <section className="py-5 header-hero-bg text-white">
-            <div className="container px-5 my-5">
-                <div className="row gx-5 justify-content-center">
-                    <div className="col-lg-8 col-xl-6">
-                        <div className="text-center">
-                            <h2 className="fw-bolder mb-5">
-                                Ready to Start Your Next Project?
-                            </h2>
-                            <p className="lead mb-4">
-                                Let's work together to bring your ideas to life. I'm here to help you create 
-                                amazing digital experiences that drive results.
-                            </p>
-                            <div className="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                <Link 
-                                    className="btn btn-light btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" 
-                                    href="/contact"
-                                >
-                                    <i className="bi bi-envelope me-2"></i>
-                                    Get In Touch
-                                </Link>
-                                <Link 
-                                    className="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" 
-                                    href="/projects"
-                                >
-                                    <i className="bi bi-folder me-2"></i>
-                                    View Projects
-                                </Link>
-                            </div>
+        <section className="relative py-12 lg:py-20 bg-dark-surface overflow-hidden">
+            {/* Background gradients */}
+            <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/10 via-transparent to-accent-secondary/10"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.12),transparent_50%)]"></div>
+            
+            <div className="container mx-auto px-4 lg:px-8 relative z-10">
+                <div className="max-w-3xl mx-auto">
+                    <div className="text-center animate-fade-in">
+                        <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6 text-white animate-fade-in">
+                            Learn More
+                        </h2>
+                        <p className="text-lg lg:text-xl leading-relaxed text-white/80 font-sans mb-8">
+                            Download my resume to access detailed information and get in touch with me.
+                        </p>
+                        <div className="flex justify-center">
+                            <a
+                                href="/resume.pdf"
+                                download
+                                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-primary rounded-xl shadow-lg shadow-accent-primary/30 hover:shadow-xl hover:shadow-accent-primary/40 transition-all duration-300 hover:-translate-y-1"
+                            >
+                                <i className="bi bi-download mr-2"></i>
+                                Download Resume
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -41,4 +35,4 @@ const CallToAction = memo(function CallToAction() {
     );
 });
 
-export default CallToAction; 
+export default CallToAction;

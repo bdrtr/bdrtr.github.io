@@ -2,6 +2,7 @@
 
 import { memo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import MainLayout from '../components/MainLayout';
 
 const BLOG_POSTS = [
@@ -152,8 +153,15 @@ const Blog = memo(function Blog() {
             <h3 className="fw-bold mb-3">Featured Post</h3>
             <div className="card border-0 shadow rounded-4 overflow-hidden">
               <div className="row g-0">
-                <div className="col-md-4">
-                  <img src={featuredPost.image} alt={featuredPost.title} className="w-100 h-100" style={{objectFit: 'cover'}} />
+                <div className="col-md-4 position-relative" style={{minHeight: 250}}>
+                  <Image 
+                    src={featuredPost.image} 
+                    alt={featuredPost.title} 
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    priority
+                  />
                 </div>
                 <div className="col-md-8">
                   <div className="card-body p-4">
@@ -180,10 +188,19 @@ const Blog = memo(function Blog() {
 
         {/* Regular Posts */}
         <div className="row g-4">
-          {regularPosts.map(post => (
-            <div className="col-md-6 col-lg-4" key={post.id}>
-              <div className="card h-100 border-0 shadow rounded-4 blog-card">
-                <img src={post.image} alt={post.title} className="card-img-top" style={{height: 200, objectFit: 'cover'}} />
+        {regularPosts.map(post => (
+          <div className="col-md-6 col-lg-4" key={post.id}>
+            <div className="card h-100 border-0 shadow rounded-4 blog-card">
+              <div className="position-relative" style={{height: 200, width: '100%'}}>
+                <Image 
+                  src={post.image} 
+                  alt={post.title} 
+                  fill
+                  className="card-img-top object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  loading="lazy"
+                />
+              </div>
                 <div className="card-body d-flex flex-column">
                   <div className="d-flex align-items-center mb-2">
                     <span className="badge bg-secondary me-2">{post.category}</span>

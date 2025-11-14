@@ -1,22 +1,29 @@
 'use client';
 
 import { memo } from "react";
-import Link from "next/link";
 
 const Footer = memo(function Footer() {
     return (
-        <footer className="bg-white py-4 mt-auto">
-            <div className="container px-5">
-                <div className="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div className="col-auto">
-                        <div className="small m-0">Copyright &copy; Bedir Tuğra Karaabalı <small>2025</small></div>
+        <footer className="py-6 mt-auto bg-dark-surface border-t border-dark-border">
+            <div className="container mx-auto px-4 lg:px-8">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="text-sm text-dark-text-secondary">
+                        Copyright &copy; Bedir Tuğra Karaabalı <span className="text-xs">2025</span>
                     </div>
-                    <div className="col-auto">
-                        <a className="small" href="https://github.com/bdrtr.gpg">send me private message</a>
-                        <span className="mx-1">&middot;</span>
-                        <a className="small" href="https://github.com/bdrtr/bdrtr.github.io">source code</a>
-                        <span className="mx-1">&middot;</span>
-                        <Link className="small" href="/contact">Contact</Link>
+                    <div className="flex items-center gap-2 text-sm text-dark-text-secondary">
+                        <a 
+                            href="https://github.com/bdrtr.gpg" 
+                            className="hover:text-accent-primary transition-colors"
+                        >
+                            send me private message
+                        </a>
+                        <span>&middot;</span>
+                        <a 
+                            href="https://github.com/bdrtr/bdrtr.github.io" 
+                            className="hover:text-accent-primary transition-colors"
+                        >
+                            source code
+                        </a>
                     </div>
                 </div>
             </div>

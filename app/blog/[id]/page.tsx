@@ -3,6 +3,7 @@
 import { useParams, useRouter } from 'next/navigation';
 import { memo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import MainLayout from '../../components/MainLayout';
 
 const BLOG_POSTS = [
@@ -52,7 +53,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 const BlogPost = memo(function BlogPost() {
   const params = useParams();
   const router = useRouter();
-  const post = BLOG_POSTS.find(p => p.id === Number(params.id));
+  const post = BLOG_POSTS.find(p => p.id === Number(params?.id));
 
   if (!post) {
     return (
@@ -73,7 +74,16 @@ const BlogPost = memo(function BlogPost() {
           <Link href="/blog" className="btn btn-outline-secondary btn-sm">&larr; Back to Blog</Link>
         </div>
         <div className="card border-0 shadow rounded-4 overflow-hidden mb-4">
-          <img src={post.image} alt={post.title} className="w-100" style={{maxHeight: 400, objectFit: 'cover'}} />
+          <div className="position-relative w-100" style={{height: 400}}>
+            <Image 
+              src={post.image} 
+              alt={post.title} 
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
+          </div>
           <div className="card-body p-4">
             <div className="d-flex align-items-center mb-2">
               <span className="badge bg-primary me-2">{post.category}</span>

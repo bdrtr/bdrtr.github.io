@@ -1,65 +1,92 @@
+'use client';
+
 import { memo, useMemo } from "react"
 import type IAboutText from "../../Interfaces/IAboutText";
 
-// Move static data outside component to prevent recreation on every render
 const ABOUT_DATA: IAboutText = {
-    greeting: "My name is Bedir Tuğra Karaabalı, i am a fullstack web developer",
-    sub_text: `Hello, I'm Bedir Tuğra. I am focused on developing myself in various fields and striving to grow as an engineer.
-     Beyond enjoying the work I do, I constantly reflect on how I can become a better engineer.
-               In my projects, I approach challenges with an engineering mindset, exploring how different 
-               disciplines can relate to and complement each other. Sometimes, I work on large, collaborative projects, 
-               and other times, I dive into programming purely out of personal passion, following my curiosity and 
-               experimenting freely.I find great inspiration in learning 
-               from people who are passionate and excel in their fields. During this journey of growth,
-                I aim to connect with like-minded individuals who share the same curiosity and drive to create meaningful 
-                solutions together`        
+    greeting: "My name is Bedir Tuğra Karaabalı, I am a software engineer",
+    sub_text: `Hello, I'm Bedir Tuğra. I am a software engineer passionate about Linux systems and open source software.
+     I work with Linux-based systems, contribute to open source projects, and build scalable software solutions.
+               My expertise includes system administration, software development, and contributing to the open source community.
+               I believe in the power of open source software and actively participate in projects that make a difference.
+               Whether it's developing applications, maintaining Linux systems, or contributing to open source libraries,
+               I approach every challenge with an engineering mindset. I'm always learning and exploring new technologies
+               in the Linux and open source ecosystem, and I enjoy collaborating with like-minded engineers who share
+               the same passion for building meaningful solutions with open source tools.`        
 };
 
 const About = memo(function About() {
-    // Memoize the about text to prevent unnecessary re-renders
     const aboutText = useMemo(() => ABOUT_DATA, []);
 
     return (
-        <section className="bg-white py-5">
-            <div className="container px-5">
-                <div className="row gx-5 justify-content-center">
-                    <div className="col-xxl-10">
-                        <div className="text-center my-5">
-                            <div className="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-4 mx-auto" style={{width: '4rem', height: '4rem'}}>
-                                <i className="bi bi-person-badge fs-1"></i>
+        <section className="py-12 lg:py-20 bg-dark-bg">
+            <div className="container mx-auto px-4 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <div className="text-center my-12">
+                        {/* Icon Badge */}
+                        <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-xl bg-accent-primary/20 border border-accent-primary/30 animate-scale-in">
+                            <i className="bi bi-person-badge text-3xl text-accent-primary"></i>
+                        </div>
+                        
+                        {/* Title */}
+                        <h2 className="text-4xl lg:text-5xl font-display font-bold mb-8 text-dark-text animate-fade-in">
+                            About Me
+                        </h2>
+                        
+                        {/* Content Card */}
+                        <div className="max-w-4xl mx-auto mb-12">
+                            <div className="bg-dark-surface/80 backdrop-blur-xl border border-dark-border rounded-2xl p-6 lg:p-10 shadow-xl">
+                                <h3 className="text-2xl lg:text-3xl font-display font-bold mb-6 text-accent-primary animate-fade-in">
+                                    {aboutText.greeting}
+                                </h3>
+                                <p className="text-base lg:text-lg leading-relaxed text-dark-text-secondary font-sans">
+                                    {aboutText.sub_text}
+                                </p>
                             </div>
-                            <h2 className="display-5 fw-bolder mb-4">
-                                <span className=" d-inline">About Me</span>
-                            </h2>
-                            <div className="row gx-5 justify-content-center">
-                                <div className="col-lg-12">
-                                    <div className="card shadow border-0 rounded-4 mb-5">
-                                        <div className="card-body p-5">
-                                            <h3 className="fw-bolder mb-4 text-primary">{aboutText.greeting}</h3>
-                                            <p className="text-muted lead mb-0">{aboutText.sub_text}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div className="row gx-5 justify-content-center">
-                                <div className="col-lg-8">
-                                    <h4 className="fw-bolder mb-4">Let's Connect</h4>
-                                    <div className="d-flex justify-content-center fs-2 gap-4">
-                                        <a className="text-gradient" href="https://links.bedirkaraabali.me/" title="Personal Links">
-                                            <i className="bi bi-link-45deg"></i>
-                                        </a>
-                                        <a className="text-gradient" href="https://www.linkedin.com/in/bdrtr/" title="LinkedIn">
-                                            <i className="bi bi-linkedin"></i>
-                                        </a>
-                                        <a className="text-gradient" href="https://github.com/bdrtr" title="GitHub">
-                                            <i className="bi bi-github"></i>
-                                        </a>
-                                        <a className="text-gradient" href="https://www.upwork.com/freelancers/~0191016e744cc3d77f" title="Upwork">
-                                            <i className="bi bi-briefcase"></i>
-                                        </a>
-                                    </div>
-                                </div>
+                        </div>
+                        
+                        {/* Social Links */}
+                        <div className="max-w-2xl mx-auto">
+                            <h4 className="text-2xl font-display font-bold mb-6 text-dark-text animate-fade-in">
+                                Contact
+                            </h4>
+                            <div className="flex justify-center items-center gap-6">
+                                <a
+                                    href="https://links.bedirkaraabali.me/"
+                                    title="Personal Links"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center w-12 h-12 rounded-xl bg-dark-surface/80 backdrop-blur-sm border border-dark-border text-accent-primary hover:bg-accent-primary/10 hover:border-accent-primary/30 hover:-translate-y-1 transition-all duration-300"
+                                >
+                                    <i className="bi bi-link-45deg text-xl"></i>
+                                </a>
+                                <a
+                                    href="https://www.linkedin.com/in/bdrtr/"
+                                    title="LinkedIn"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center w-12 h-12 rounded-xl bg-dark-surface/80 backdrop-blur-sm border border-dark-border text-accent-secondary hover:bg-accent-secondary/10 hover:border-accent-secondary/30 hover:-translate-y-1 transition-all duration-300"
+                                >
+                                    <i className="bi bi-linkedin text-xl"></i>
+                                </a>
+                                <a
+                                    href="https://github.com/bdrtr"
+                                    title="GitHub"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center w-12 h-12 rounded-xl bg-dark-surface/80 backdrop-blur-sm border border-dark-border text-accent-tertiary hover:bg-accent-tertiary/10 hover:border-accent-tertiary/30 hover:-translate-y-1 transition-all duration-300"
+                                >
+                                    <i className="bi bi-github text-xl"></i>
+                                </a>
+                                <a
+                                    href="https://www.upwork.com/freelancers/~0191016e744cc3d77f"
+                                    title="Upwork"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center w-12 h-12 rounded-xl bg-dark-surface/80 backdrop-blur-sm border border-dark-border text-accent-primary hover:bg-accent-primary/10 hover:border-accent-primary/30 hover:-translate-y-1 transition-all duration-300"
+                                >
+                                    <i className="bi bi-briefcase text-xl"></i>
+                                </a>
                             </div>
                         </div>
                     </div>

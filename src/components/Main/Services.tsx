@@ -70,7 +70,7 @@ const Services = memo(function Services() {
                                         <div className="d-flex align-items-center">
                                             <div className="small">
                                                 <div className="fw-bold">Ready to start?</div>
-                                                <div className="text-muted">Let's discuss your project</div>
+                                                <div className="text-muted">Let&apos;s discuss your project</div>
                                             </div>
                                         </div>
                                         <div className={`rounded overflow-hidden flex-shrink-0`}>

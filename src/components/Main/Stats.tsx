@@ -1,56 +1,53 @@
+'use client';
+
 import { memo } from "react";
 
 const Stats = memo(function Stats() {
     const stats = [
         {
-            number: "50+",
-            label: "Projects Completed",
-            icon: "bi-folder-check",
-            color: "primary"
-        },
-        {
-            number: "3+",
-            label: "Years Experience",
-            icon: "bi-calendar-check",
-            color: "secondary"
+            number: "20+",
+            label: "Open Source Projects",
+            icon: "bi-github",
         },
         {
             number: "15+",
-            label: "Technologies Mastered",
-            icon: "bi-code-square",
-            color: "success"
+            label: "Blog Posts",
+            icon: "bi-journal-text",
         },
         {
-            number: "100%",
-            label: "Client Satisfaction",
-            icon: "bi-heart-fill",
-            color: "danger"
+            number: "10+",
+            label: "Technologies",
+            icon: "bi-code-square",
+        },
+        {
+            number: "∞",
+            label: "Learning Drive",
+            icon: "bi-lightbulb",
         }
     ];
 
     return (
-        <section className="py-5 bg-white">
-            <div className="container px-5 my-5">
-                <div className="row gx-5 justify-content-center">
-                    <div className="col-lg-8 col-xl-6">
-                        <div className="text-center">
-                            <h2 className="fw-bolder mb-5">
-                                <span className="text-gradiant d-inline">My Achievements</span>
-                            </h2>
-                        </div>
+        <section className="py-12 lg:py-20 bg-dark-bg">
+            <div className="container mx-auto px-4 lg:px-8">
+                <div className="max-w-4xl mx-auto mb-12">
+                    <div className="text-center">
+                        <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6 text-dark-text animate-fade-in">
+                            Statistics
+                        </h2>
                     </div>
                 </div>
-                <div className="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
                     {stats.map((stat, index) => (
-                        <div className="col mb-5" key={index}>
-                            <div className="text-center">
-                                <div className={`feature bg-${stat.color} bg-gradient text-white rounded-3 mb-3 mx-auto`} style={{width: '4rem', height: '4rem'}}>
-                                    <i className={`bi ${stat.icon} fs-1`}></i>
-                                </div>
-                                <div className="h5 fw-bolder">
-                                    <span className="text-gradient d-inline">{stat.number}</span>
-                                </div>
-                                <div className="text-muted">{stat.label}</div>
+                        <div key={index} className="text-center animate-fade-in">
+                            <div className="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-xl bg-accent-primary/20 border border-accent-primary/30 animate-scale-in">
+                                <i className={`bi ${stat.icon} text-3xl text-accent-primary`}></i>
+                            </div>
+                            <div className="text-4xl lg:text-5xl font-display font-bold mb-2 text-accent-primary animate-fade-in">
+                                {stat.number}
+                            </div>
+                            <div className="text-dark-text-secondary font-sans">
+                                {stat.label}
                             </div>
                         </div>
                     ))}
@@ -60,4 +57,4 @@ const Stats = memo(function Stats() {
     );
 });
 
-export default Stats; 
+export default Stats;
