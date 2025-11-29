@@ -6,6 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const nextConfig: NextConfig = {
+  output: 'export', // Enable static export for GitHub Pages
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
@@ -39,32 +40,8 @@ const nextConfig: NextConfig = {
     } : false,
   },
   
-  // Headers for security and performance
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin'
-          },
-        ],
-      },
-    ];
-  },
+  // Note: headers() is not supported with static export (output: 'export')
+  // Headers can be configured at the hosting level (GitHub Pages, etc.)
 };
 
 export default withBundleAnalyzer(nextConfig);
