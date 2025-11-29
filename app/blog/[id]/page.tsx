@@ -1,10 +1,15 @@
-'use client';
-
-import { useParams, useRouter } from 'next/navigation';
-import { memo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import MainLayout from '../../components/MainLayout';
+import BlogPostClient from './BlogPostClient';
+
+// Generate static params for all blog posts
+export function generateStaticParams() {
+  return [
+    { id: '1' },
+    { id: '2' },
+  ];
+}
 
 const BLOG_POSTS = [
   {
@@ -50,10 +55,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   },
 ];
 
-const BlogPost = memo(function BlogPost() {
-  const params = useParams();
-  const router = useRouter();
-  const post = BLOG_POSTS.find(p => p.id === Number(params?.id));
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default function BlogPostPage({ params }: PageProps) {
+  const post = BLOG_POSTS.find(p => p.id === Number(params.id));
 
   if (!post) {
     return (
@@ -61,7 +70,7 @@ const BlogPost = memo(function BlogPost() {
         <div className="container py-5 text-center">
           <h2 className="mb-3">Post Not Found</h2>
           <p className="text-muted">The blog post you are looking for does not exist.</p>
-          <button className="btn btn-primary" onClick={() => router.back()}>Go Back</button>
+          <BlogPostClient />
         </div>
       </MainLayout>
     );
@@ -107,7 +116,4 @@ const BlogPost = memo(function BlogPost() {
       </div>
     </MainLayout>
   );
-});
-
-export default BlogPost;
-
+}
