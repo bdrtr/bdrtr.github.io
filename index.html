@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Windows 95 Simulator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@0.7.0",
+          "@tailwindcss/browser": "https://esm.sh/@tailwindcss/browser@^4.1.3"
+        }
+      }
+    </script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div class="desktop" id="desktop">
+      <!-- Desktop Icons -->
+      <div class="icon" data-app="myComputer">
+        <img
+          src="https://storage.googleapis.com/gemini-95-icons/mycomputer.png"
+          alt="My Computer"
+          style="width: 70px; height: 50px"
+        />
+        <span>Bedir's PC</span>
+      </div>
+      <div class="icon" data-app="aboutMe">
+        <img src="https://storage.googleapis.com/gemini-95-icons/GemNotes.png" alt="About Me" />
+        <span>About Me.txt</span>
+      </div>
+      <div class="icon" data-app="resume">
+        <img src="https://win98icons.alexmeub.com/icons/png/wordpad_doc-1.png" alt="Resume" />
+        <span>Resume.pdf</span>
+      </div>
+      <div class="icon" data-app="duckduckgo">
+        <img src="https://win98icons.alexmeub.com/icons/png/msie1-2.png" alt="DuckDuckGo" />
+        <span>DuckDuckGo</span>
+      </div>
+      <div class="icon" data-app="tech">
+        <img src="https://storage.googleapis.com/gemini-95-icons/GemNotes.png" alt="Tech Stack" />
+        <span>Tech.txt</span>
+      </div>
+      <div class="icon" data-app="github">
+        <img src="https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-2.png" alt="GitHub" />
+        <span>GitHub</span>
+      </div>
+      <div class="icon" data-app="sendMail">
+        <img src="https://win98icons.alexmeub.com/icons/png/message_envelope_open-0.png" alt="Send Mail" />
+        <span>Send Mail</span>
+      </div>
+      <div class="icon" data-app="links">
+        <img src="https://win98icons.alexmeub.com/icons/png/world-1.png" alt="Links" />
+        <span>Links</span>
+      </div>
+
+
+
+      <!-- Windows -->
+      <div class="window resizable" id="myComputer">
+        <div class="window-titlebar">
+          <span class="window-title">Bedir's PC</span>
+          <div class="window-controls">
+            <div class="window-minimize window-control-button">−</div>
+            <div class="window-close window-control-button">✕</div>
+          </div>
+        </div>
+        <div class="window-content" style="background-color: white">
+          <div id="c-drive-icon" class="window-icon">
+            <img src="https://storage.googleapis.com/gemini-95-icons/cdrive.png" alt="C Drive" />
+            <span>C:</span>
+          </div>
+          <div id="c-drive-content" style="display: none">
+            <div class="window-icon" onclick="window.open('https://github.com/bdrtr', '_blank')">
+              <img
+                src="https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-2.png"
+                alt="GitHub"
+              />
+              <span>GitHub</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="window resizable" id="aboutMe">
+        <div class="window-titlebar">
+          <span class="window-title">About Me.txt - Notepad</span>
+          <div class="window-controls">
+            <div class="window-minimize window-control-button">−</div>
+            <div class="window-close window-control-button">✕</div>
+          </div>
+        </div>
+        <div class="window-content">
+          <textarea
+            class="notepad-textarea"
+            readonly
+            style="
+              width: 100%;
+              height: 100%;
+              border: none;
+              outline: none;
+              resize: none;
+              background-color: white;
+              border: 1px solid #808080;
+              padding: 5px;
+            "
+          >Hello, I'm Bedir Tuğra. I am a software engineer passionate about Linux systems and open source software. I work with Linux-based systems, contribute to open source projects, and build scalable software solutions. My expertise includes system administration, software development, and contributing to the open source community. I believe in the power of open source software and actively participate in projects that make a difference. Whether it's developing applications, maintaining Linux systems, or contributing to open source libraries, I approach every challenge with an engineering mindset. I'm always learning and exploring new technologies in the Linux and open source ecosystem, and I enjoy collaborating with like-minded engineers who share the same passion for building meaningful solutions with open source tools.</textarea>
+        </div>
+      </div>
+
+      <div class="window resizable" id="resume">
+        <div class="window-titlebar">
+          <span class="window-title">Resume.pdf - Viewer</span>
+          <div class="window-controls">
+            <div class="window-minimize window-control-button">−</div>
+            <div class="window-close window-control-button">✕</div>
+          </div>
+        </div>
+        <div class="window-content">
+          <div class="browser-viewport" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 20px;">
+            <img src="https://win98icons.alexmeub.com/icons/png/wordpad_doc-1.png" alt="PDF" style="width: 64px; height: 64px; margin-bottom: 20px;" />
+            <h2>Bedir Tuğra Karaabalı</h2>
+            <p>Software Engineer & Open Source Enthusiast</p>
+            <a href="https://bdrtr.github.io/resume.pdf" target="_blank" style="margin-top: 20px; padding: 5px 15px; background: #c0c0c0; border: 2px solid; border-color: #fff #000 #000 #fff; color: black; text-decoration: none; cursor: pointer;">Download Resume</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="window resizable" id="duckduckgo" style="width: 600px; height: 450px;">
+        <div class="window-titlebar">
+          <span class="window-title">DuckDuckGo - Experience</span>
+          <div class="window-controls">
+            <div class="window-minimize window-control-button">−</div>
+            <div class="window-close window-control-button">✕</div>
+          </div>
+        </div>
+        <div class="window-content" style="padding: 0; display: flex; flex-direction: column; background-color: #fff;">
+          <div style="background-color: #c0c0c0; padding: 5px; border-bottom: 1px solid #808080; display: flex; align-items: center; gap: 10px;">
+            <span style="font-family: 'Courier New', Courier, monospace;">Address:</span>
+            <input type="text" value="https://duckduckgo.com/?q=bedir+tugra+karaabali+experience" readonly style="flex-grow: 1; padding: 2px; border: 2px inset #808080;" />
+          </div>
+          <div style="flex-grow: 1; padding: 20px; overflow-y: auto; font-family: sans-serif; color: #333;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <img src="https://duckduckgo.com/assets/logo_header.v109.svg" alt="DuckDuckGo" style="height: 40px;" />
+                <input type="text" value="bedir tugra karaabali experience" readonly style="padding: 5px; border: 1px solid #ccc; width: 300px; border-radius: 4px;" />
+                <button style="padding: 5px 15px; background: #f2f2f2; border: 1px solid #ccc; border-radius: 4px;">Search</button>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #1a0dab; margin: 0 0 5px 0; font-size: 18px; text-decoration: underline; cursor: pointer;">Software Engineer @ Open Source</h3>
+                <p style="color: #006621; margin: 0 0 5px 0; font-size: 14px;">https://github.com/bdrtr</p>
+                <p style="margin: 0; font-size: 14px;">Contributing to various Linux and open source projects. Working with Linux-based systems and building scalable software solutions.</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #1a0dab; margin: 0 0 5px 0; font-size: 18px; text-decoration: underline; cursor: pointer;">System Administrator</h3>
+                <p style="color: #006621; margin: 0 0 5px 0; font-size: 14px;">https://linux.org</p>
+                <p style="margin: 0; font-size: 14px;">Managing and maintaining Linux-based infrastructure. Expertise in Debian, Ubuntu, Arch, and RHEL.</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #1a0dab; margin: 0 0 5px 0; font-size: 18px; text-decoration: underline; cursor: pointer;">Freelance Developer</h3>
+                <p style="color: #006621; margin: 0 0 5px 0; font-size: 14px;">https://bedirkaraabali.com</p>
+                <p style="margin: 0; font-size: 14px;">Building scalable software solutions for clients. Utilizing modern web technologies and robust backend architectures.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="window resizable" id="tech">
+        <div class="window-titlebar" style="background: #ffccff; color: black;">
+          <span class="window-title">Tech.txt</span>
+          <div class="window-controls">
+            <div class="window-minimize window-control-button" style="color: black; border-color: black;">−</div>
+            <div class="window-close window-control-button" style="color: black; border-color: black;">✕</div>
+          </div>
+        </div>
+        <div class="window-content" style="background-color: #ffccff; padding: 0;">
+          <textarea
+            readonly
+            style="
+              width: 100%;
+              height: 100%;
+              resize: none;
+              background-color: transparent;
+              border: none;
+              padding: 10px;
+              font-family: 'Comic Sans MS', cursive, sans-serif;
+              font-size: 14px;
+              line-height: 1.5;
+              outline: none;
+            "
+          >
+My Tech Stack & Tools:
+
+• Languages & Frameworks:
+  Go, Rust, C#, .NET, Python, Java, Shell, FastAPI
+
+• Databases & Messaging:
+  PostgreSQL, MongoDB, Redis, RabbitMQ, Kafka
+
+• AI & DevOps & Cloud:
+  PyTorch, TensorFlow, Docker, Kubernetes, 
+  Google Cloud, Linux, Git
+          </textarea>
+        </div>
+      </div>
+
+      <div class="window resizable" id="github">
+        <div class="window-titlebar">
+          <span class="window-title">GitHub</span>
+          <div class="window-controls">
+            <div class="window-minimize window-control-button">−</div>
+            <div class="window-close window-control-button">✕</div>
+          </div>
+        </div>
+        <div class="window-content">
+          <div class="browser-viewport" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 20px;">
+            <img src="https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-2.png" alt="GitHub" style="width: 64px; height: 64px; margin-bottom: 20px;" />
+            <h2>GitHub Profile</h2>
+            <p>Check out my open source contributions and projects.</p>
+            <a href="https://github.com/bdrtr" target="_blank" style="margin-top: 20px; padding: 5px 15px; background: #c0c0c0; border: 2px solid; border-color: #fff #000 #000 #fff; color: black; text-decoration: none; cursor: pointer;">Open GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="window resizable" id="sendMail">
+        <div class="window-titlebar">
+          <span class="window-title">Send Mail</span>
+          <div class="window-controls">
+            <div class="window-minimize window-control-button">−</div>
+            <div class="window-close window-control-button">✕</div>
+          </div>
+        </div>
+        <div class="window-content">
+          <div class="browser-viewport" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 20px;">
+            <img src="https://win98icons.alexmeub.com/icons/png/message_envelope_open-0.png" alt="Send Mail" style="width: 64px; height: 64px; margin-bottom: 20px;" />
+            <h2>Contact Me</h2>
+            <p>Send an email to bedirkaraabali@gmail.com</p>
+            <a href="mailto:bedirkaraabali@gmail.com" style="margin-top: 20px; padding: 5px 15px; background: #c0c0c0; border: 2px solid; border-color: #fff #000 #000 #fff; color: black; text-decoration: none; cursor: pointer;">Compose Email</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="window resizable" id="links">
+        <div class="window-titlebar">
+          <span class="window-title">Links</span>
+          <div class="window-controls">
+            <div class="window-minimize window-control-button">−</div>
+            <div class="window-close window-control-button">✕</div>
+          </div>
+        </div>
+        <div class="window-content">
+          <div class="browser-viewport" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 20px;">
+            <img src="https://win98icons.alexmeub.com/icons/png/world-1.png" alt="Links" style="width: 64px; height: 64px; margin-bottom: 20px;" />
+            <h2>My Links</h2>
+            <p>Visit my links page to find me on other platforms.</p>
+            <a href="https://links.bedirkaraabali.com/" target="_blank" style="margin-top: 20px; padding: 5px 15px; background: #c0c0c0; border: 2px solid; border-color: #fff #000 #000 #fff; color: black; text-decoration: none; cursor: pointer;">Open links.bedirkaraabali.com</a>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="window resizable" id="gemini">
+        <div class="window-titlebar">
+          <span class="window-title">Gemini App</span>
+          <div class="window-controls">
+            <div class="window-minimize window-control-button">−</div>
+            <div class="window-close window-control-button">✕</div>
+          </div>
+        </div>
+        <div class="window-content gemini-chat-content">
+          <div class="gemini-chat-history">
+          </div>
+          <div class="gemini-chat-input-area">
+            <input type="text" class="gemini-chat-input" placeholder="Type your message..." />
+            <button class="gemini-chat-send">Send</button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="window resizable" id="imageViewer" style="width: 350px; height: 300px">
+        <div class="window-titlebar">
+          <span class="window-title" id="image-viewer-title">Image Viewer</span>
+          <div class="window-controls">
+            <div class="window-minimize window-control-button">−</div>
+            <div class="window-close window-control-button">✕</div>
+          </div>
+        </div>
+        <div
+          class="window-content image-viewer-content"
+          style="
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #808080;
+          "
+        >
+          <img
+            id="image-viewer-img"
+            src=""
+            alt="Image"
+            style="max-width: 100%; max-height: 100%; object-fit: contain"
+          />
+        </div>
+      </div>
+
+      <div class="window resizable" id="mediaPlayer" style="width: 520px; height: 500px;">
+        <div class="window-titlebar">
+          <span class="window-title">GemPlayer</span>
+          <div class="window-controls">
+            <div class="window-minimize window-control-button">−</div>
+            <div class="window-close window-control-button">✕</div>
+          </div>
+        </div>
+        <div class="window-content media-player-content">
+          <div class="media-player-url-bar">
+            <input type="text" class="media-player-input" placeholder="Enter YouTube Video URL or ID" />
+            <button class="media-player-load-button">Load</button>
+          </div>
+          <div class="media-player-video-container">
+            <div id="youtube-player-mediaPlayer">
+                 <p class="media-player-status-message">Loading GemPlayer...</p>
+            </div>
+          </div>
+          <div class="media-player-controls-panel">
+            <div class="media-player-buttons-group">
+                <button class="media-player-control-button" id="media-player-play" title="Play">▶</button>
+                <button class="media-player-control-button" id="media-player-pause" title="Pause">❚❚</button>
+                <button class="media-player-control-button" id="media-player-stop" title="Stop">■</button>
+            </div>
+            <div class="media-player-progress-bar-container-placeholder">
+                <div class="media-player-progress-bar-placeholder"></div>
+            </div>
+            <div class="media-player-volume-placeholder">
+                <span>🔊</span>
+                <div class="media-player-volume-slider-placeholder"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Start Menu -->
+      <div class="start-menu" id="start-menu">
+        <div class="start-menu-item" data-app="myComputer">Bedir's PC</div>
+        <div class="start-menu-item" data-app="aboutMe">About Me.txt</div>
+        <div class="start-menu-item" data-app="resume">Resume.pdf</div>
+        <div class="start-menu-item" data-app="duckduckgo">DuckDuckGo</div>
+        <div class="start-menu-item" data-app="tech">Tech.txt</div>
+        <div class="start-menu-item" data-app="github">GitHub</div>
+        <div class="start-menu-item" data-app="sendMail">Send Mail</div>
+        <div class="start-menu-item" data-app="links">Links</div>
+      </div>
+
+      <!-- Taskbar -->
+      <div id="taskbar">
+        <button id="start-button">
+          <img
+            src="https://win98icons.alexmeub.com/icons/png/windows_slanted-1.png"
+            alt="Start"
+            style="width: 24px; height: 24px; margin-right: 5px;"
+          />
+          <span style="font-weight: bold; font-size: 14px;">Start</span>
+        </button>
+        <div id="taskbar-apps">
+        </div>
+      </div>
+    </div>
+  <script type="module" src="/index.ts"></script>
+</body>
+</html>

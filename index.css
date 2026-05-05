@@ -1,0 +1,414 @@
+/* Base styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #008080; /* Teal background */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrollbars */
+  color: black;
+}
+
+/* Desktop styles */
+.desktop {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative; /* For absolute positioning of icons and windows */
+  cursor: default; /* Default desktop cursor */
+  padding-top: 10px; /* Add some space at the top */
+  padding-left: 10px;
+}
+
+/* Icon styles */
+.icon {
+  display: inline-flex; /* Use inline-flex for better layout control if needed, or keep block */
+  flex-direction: column;
+  align-items: center;
+  margin: 15px; /* Adjust margin */
+  cursor: pointer;
+  user-select: none; /* Prevent text selection */
+  width: 100px; /* Give icons a fixed width for wrapping */
+  vertical-align: top; /* Align icons nicely when wrapping */
+  text-align: center;
+}
+
+.icon img {
+  width: 48px; /* Icon size */
+  height: 48px;
+  margin-bottom: 8px;
+}
+
+.icon span {
+  color: white;
+  font-size: 0.75rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add text shadow for better visibility */
+  white-space: normal;      /* Allow text wrapping */
+  word-wrap: break-word;    /* Break long words */
+  max-width: 100%;         /* Allow text to use full icon width */
+  text-align: center;
+}
+
+/* Window styles */
+.window {
+  background-color: #C0C0C0; /* Window background color - Changed to match Win95 better */
+  border-top: 2px solid #FFFFFF;
+  border-left: 2px solid #FFFFFF;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4); /* More subtle shadow */
+  position: absolute; /* Absolute positioning within the desktop */
+  top: 50px;
+  left: 100px;
+  width: 320px; /* Default width */
+  height: 240px; /* Default height */
+  display: none; /* Initially hidden */
+  flex-direction: column; /* Use flexbox for layout */
+  z-index: 10; /* Ensure windows are above desktop icons */
+  box-sizing: border-box; /* Include border in width/height */
+}
+
+.window.active {
+  display: flex; /* Show the window when active */
+  z-index: 20; /* Bring active window to the front */
+}
+
+.window.resizable {
+  resize: both; /* Enable resizing in both directions */
+  overflow: hidden; /* Hide overflow by default, content area will handle scroll */
+  min-width: 200px;  /* Set minimum width */
+  min-height: 150px; /* Set minimum height */
+}
+
+.window-titlebar {
+  background-color: #000080; /* Title bar color */
+  color: white;
+  padding: 3px 4px; /* Adjusted padding */
+  font-size: 0.8rem;
+  font-weight: bold; /* Bold title */
+  display: flex;
+  justify-content: space-between; /* Space between title and buttons */
+  align-items: center; /* Vertically center title and buttons */
+  cursor: grab; /* Show a grab cursor */
+  height: 22px; /* Consistent height */
+  box-sizing: border-box;
+}
+.window-titlebar:active {
+  cursor: grabbing; /* Show a grabbing cursor */
+}
+
+.window-title {
+  margin-right: auto; /* Push title to the left */
+  margin-left: 2px;
+  white-space: nowrap;      /* Prevent text wrapping */
+  overflow: hidden;        /* Hide overflowing text */
+  text-overflow: ellipsis;  /* Add ellipsis (...) if title is too long */
+  max-width: calc(100% - 60px); /* Adjust max-width based on button size */
+}
+
+.window-controls {
+  display: flex;
+  gap: 3px; /* Space between buttons */
+}
+
+.window-control-button {
+  width: 16px; /* Button size */
+  height: 16px;
+  background-color: #C0C0C0; /* Button background */
+  border-top: 1px solid #FFFFFF;
+  border-left: 1px solid #FFFFFF;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.5); /* Inner highlight */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: "Times New Roman", serif; /* More classic font for symbols */
+  font-size: 0.8rem; /* Adjust font size as needed */
+  font-weight: bold;
+  line-height: 0;      /* Important for vertical centering of symbols */
+  padding: 0;          /* Reset padding */
+  color: black;
+}
+
+.window-control-button:active {
+  border-top: 1px solid #000000;
+  border-left: 1px solid #000000;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  box-shadow: none; /* Remove shadow on press */
+}
+
+.window-minimize { /* Uses text symbol */ }
+.window-close { /* Uses text symbol */ }
+
+
+.window-content {
+  padding: 2px; /* Minimal padding inside window */
+  font-size: 0.9rem;
+  flex-grow: 1; /* Allow content to fill remaining space */
+  overflow: auto; /* Add scrollbars ONLY if content overflows */
+  background-color: white; /* Standard content background */
+  border: 1px inset #808080; /* Inset border for content area */
+  margin: 2px; /* Margin around the content area */
+  position: relative; /* Needed for absolute positioned elements inside */
+  display: flex; /* Make content a flex container for easier layout */
+  flex-direction: column; /* Stack children vertically */
+}
+
+/* Specific app content styling */
+.window-content textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.window-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+#dosbox-container, #doom-container, #wolf3d-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.jsdos {
+  position: relative;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: black;
+}
+
+.jsdos canvas {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+
+#doom .window-content iframe, #wolf3d .window-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background-color: black;
+}
+
+
+
+/* Start Menu styles */
+.start-menu {
+  background-color: #C0C0C0;
+  border-top: 2px solid #FFFFFF;
+  border-left: 2px solid #FFFFFF;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  bottom: 36px;
+  left: 0;
+  width: 180px;
+  display: none;
+  flex-direction: column;
+  z-index: 50;
+  padding: 2px;
+}
+
+.start-menu.active {
+  display: flex;
+}
+
+.start-menu-item {
+  padding: 5px 10px 5px 25px;
+  font-size: 0.8rem;
+  color: black;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+}
+
+.start-menu-item:hover {
+  background-color: #000080;
+  color: white;
+}
+
+/* Taskbar styles */
+#taskbar {
+  background-color: #C0C0C0;
+  border-top: 2px solid #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  z-index: 40;
+  box-sizing: border-box;
+}
+
+#start-button {
+  background-color: #C0C0C0;
+  border-top: 2px solid #FFFFFF;
+  border-left: 2px solid #FFFFFF;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  padding: 2px 8px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 30px;
+  box-sizing: border-box;
+}
+
+#start-button:active {
+ border-top: 2px solid #000000;
+ border-left: 2px solid #000000;
+ border-right: 2px solid #FFFFFF;
+ border-bottom: 2px solid #FFFFFF;
+ padding: 3px 7px 1px 9px;
+}
+
+#start-button img {
+  width: 20px;
+  height: 20px;
+}
+
+#taskbar-apps {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  align-items: center;
+  overflow: hidden;
+}
+
+.taskbar-app {
+  background-color: #C0C0C0;
+  border-top: 1px solid #FFFFFF;
+  border-left: 1px solid #FFFFFF;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding: 2px 6px;
+  margin: 0 2px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+.taskbar-app img {
+  width: 16px;
+  height: 16px;
+}
+
+.taskbar-app.active, .taskbar-app:active {
+  border-top: 1px solid #000000;
+  border-left: 1px solid #000000;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  background-color: #e0e0e0;
+  box-shadow: none;
+  padding: 3px 5px 1px 7px;
+}
+
+
+
+.notepad-textarea {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid #808080;
+  flex-grow: 1;
+  width: 100%;
+  resize: none;
+}
+
+
+
+.browser-viewport {
+  position: relative;
+  flex-grow: 1;
+  background-color: white;
+  overflow: hidden;
+}
+
+
+
+
+
+
+
+/* --- Icons Inside Windows --- */
+.window-icon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: top;
+}
+
+.window-icon:hover {
+  background-color: #000080;
+  color: white;
+}
+
+.window-icon:hover span {
+  background-color: #000080;
+  color: white;
+}
+
+.window-icon img {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 5px;
+}
+
+.window-icon span {
+  font-size: 0.7rem;
+  color: black;
+  max-height: 2.4em;
+  overflow: hidden;
+  line-height: 1.2em;
+}
+
+
+
+
+
+
+
+#myComputer .window-content,
+#aboutMe .window-content,
+#resume .window-content,
+#github .window-content,
+#sendMail .window-content,
+#links .window-content {
+    flex-direction: column;
+}
